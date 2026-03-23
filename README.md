@@ -1,28 +1,71 @@
 
+
+
+
+
 # LTT / A long-text translation tool based on DeepSeek API, designed for academic papers (PDF).
+## Background 
 
+> 在科研工作中，研究者常需快速浏览大量文献以筛选有价值的信息。对于非英语母语的研究者而言，直接阅读英文原文效率较低，而翻译后的粗糙版本往往是最省时省力的选择——无需逐词精读，只需快速把握核心内容即可完成筛选。
 
-> To address the inefficiencies of frequent API calls and the high cost of professional software in large-scale translation scenarios, I have developed an automated tool. This tool automatically orchestrates large language model APIs, merges multiple outputs into a single `.docx` document, and operates seamlessly in the background — significantly reducing manual effort.
+> 然而，现有解决方案存在明显痛点：频繁调用AI接口效率低下，专业翻译软件成本高昂。为此，我们开发了这款自动化工具，通过自动调度大模型接口、合并多轮输出为 `.docx` 文档，以静默后台的方式完成翻译流程，显著降低人力负担。
+
 
 ---
 
-## Features 
+## Cost Advantage / 成本优势
+
+传统专业翻译软件（如福昕阅读器）按页收费，价格高达 **0.4 元/页**，而本工具通过调用大模型API，单页翻译成本仅需 **0.02 元/页**，成本仅为前者的 **1/20**，降幅高达 **95%**！
+
+> 📊 以上数据基于实际API调用成本测算，具体价格可能随模型厂商调整略有浮动。
+
+![福昕](./screen_cut_1.png)
+
+---
+
+## Features / 功能特点
 
 | 功能 | 说明 |
 |------|------|
 | **自动调度接口** | 无需人工干预，自动调用大模型接口 |
 | **多轮结果合并** | 将多次翻译输出合并为一份结构清晰的 `.docx` 文档 |
 | **后台静默运行** | 以静默后台方式运行，不影响其他工作流程 |
-| **高性价比** | 降低对昂贵专业翻译软件的依赖，显著节约成本 |
+| **高性价比** | 相比专业软件成本降低95%，大规模翻译场景优势显著 |
 
 ---
-传统专业翻译软件（如福昕阅读器）按页收费，价格高达 **0.4 元/页**，而本工具通过调用大模型API，单页翻译成本仅需 **0.02 元/页**，成本仅为前者的 **1/20**，降幅高达 **95%**！
-![福昕收费](./screen_cut_1.png)
 
-## Supported Models 
+## Limitations / 当前不足
+
+> ⚠️ 本工具目前存在以下局限，欢迎社区贡献改进：
+
+| 问题 | 说明 | 状态 |
+|------|------|:----:|
+| **公式乱码** | PDF中的数学公式在转换过程中可能出现格式错乱或无法识别 | 待优化 |
+| **图片无法识别** | 文档中的图片、图表等内容无法被提取和翻译 | 待优化 |
+
+
+---
+
+## Supported Models / 支持的模型
 
 - DeepSeek
 - *更多模型持续接入中...*
+
+---
+
+## Quick Start / 快速开始
+
+### Prerequisites / 环境要求
+
+- Python 3.8+
+- 各模型对应的API Key
+
+### Installation / 安装
+
+```bash
+git clone https://github.com/your-repo/auto-translate-tool.git
+cd auto-translate-tool
+pip install -r requirements.txt
 
 ---
 
